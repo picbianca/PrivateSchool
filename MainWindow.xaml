@@ -64,7 +64,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Content="Data angajare:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,31,0,7" Grid.Row="2" VerticalAlignment="Center" Grid.RowSpan="2"/>
-                        <DatePicker x:Name="data_angajareDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="2.333,0,-173,10" Grid.Row="3" SelectedDate="{Binding data_angajare, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="22" Width="306"/>
+                        <DatePicker x:Name="data_angajareDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="2.333,0,-172.333,7" Grid.Row="3" SelectedDate="{Binding data_angajare, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="25" Width="306"/>
                         <Label Content="Nume profesor:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
                         <TextBox x:Name="numeprofTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="2.333,3,-175.667,4" Grid.Row="1" Text="{Binding numeprof, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="306" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textBoxInError}"/>
                         <Label Content="Prenume profesor:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
