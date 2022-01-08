@@ -45,9 +45,7 @@ namespace PrivateSchool
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             action = ActionState.New;
-            BindingOperations.ClearBinding(numeprofTextBox, TextBox.TextProperty);
-            BindingOperations.ClearBinding(prenumeprofTextBox, TextBox.TextProperty);
-            SetValidationBinding();
+          
 
         }
 
@@ -56,6 +54,8 @@ namespace PrivateSchool
             action = ActionState.Edit;
             BindingOperations.ClearBinding(numeprofTextBox, TextBox.TextProperty);
             BindingOperations.ClearBinding(prenumeprofTextBox, TextBox.TextProperty);
+            BindingOperations.ClearBinding(numeTextBox, TextBox.TextProperty);
+            BindingOperations.ClearBinding(prenumeTextBox, TextBox.TextProperty);
             SetValidationBinding();
 
 
@@ -88,6 +88,28 @@ namespace PrivateSchool
         private void btnNext1_Click(object sender, RoutedEventArgs e)
         {
             materieVSource.View.MoveCurrentToNext();
+
+        }
+
+        private void btnPrev2_Click(object sender, RoutedEventArgs e)
+        {
+            elevVSource.View.MoveCurrentToPrevious();
+        }
+
+        private void btnNext2_Click(object sender, RoutedEventArgs e)
+        {
+            elevVSource.View.MoveCurrentToNext();
+        }
+
+        private void btnPrev3_Click(object sender, RoutedEventArgs e)
+        {
+           notaVSource.View.MoveCurrentToPrevious();
+
+        }
+
+        private void btnNext3_Click(object sender, RoutedEventArgs e)
+        {
+            notaVSource.View.MoveCurrentToNext();
 
         }
 
@@ -423,6 +445,9 @@ namespace PrivateSchool
             }
 
         }
+
+       
+
         private void SaveScoalas()
         {
             Scoala scoala = null;
@@ -621,7 +646,30 @@ namespace PrivateSchool
             prenumeprofValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             prenumeprofValidationBinding.ValidationRules.Add(new
            StringMinLengthValidator());
-            prenumeprofTextBox.SetBinding(TextBox.TextProperty,prenumeprofValidationBinding); 
+            prenumeprofTextBox.SetBinding(TextBox.TextProperty,prenumeprofValidationBinding);
+
+
+            Binding numeValidationBinding = new Binding();
+            numeValidationBinding.Source = elevVSource;
+            numeValidationBinding.Path = new PropertyPath("nume");
+            numeValidationBinding.NotifyOnValidationError = true;
+            numeValidationBinding.Mode = BindingMode.TwoWay;
+            numeValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            numeValidationBinding.ValidationRules.Add(new StringNotEmpty());
+            numeTextBox.SetBinding(TextBox.TextProperty, numeValidationBinding);
+
+            Binding prenumeValidationBinding = new Binding();
+            prenumeValidationBinding.Source = elevVSource;
+            prenumeValidationBinding.Path = new PropertyPath("prenume");
+            prenumeValidationBinding.NotifyOnValidationError = true;
+            prenumeValidationBinding.Mode = BindingMode.TwoWay;
+            prenumeValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+            prenumeValidationBinding.ValidationRules.Add(new
+           StringMinLengthValidator());
+            prenumeTextBox.SetBinding(TextBox.TextProperty, prenumeValidationBinding);
+
+
+
         }
     }
 

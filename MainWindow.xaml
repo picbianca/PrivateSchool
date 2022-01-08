@@ -190,12 +190,12 @@
                         <Label Content="Elev Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
                         <TextBox x:Name="elevIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="18" Margin="3.667,4,0,10" Grid.Row="0" Text="{Binding ElevId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="37" IsEnabled="False"/>
                         <Label Content="Nume elev:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-                        <TextBox x:Name="numeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3.667,4,-221,3" Grid.Row="1" Text="{Binding nume, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="352"/>
+                        <TextBox x:Name="numeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3.667,4,-221,3" Grid.Row="1" Text="{Binding nume, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="352" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textBoxInError}"/>
                         <Label Content="Prenume elev:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-                        <TextBox x:Name="prenumeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3.667,4,-220.333,3" Grid.Row="2" Text="{Binding prenume, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="352"/>
+                        <TextBox x:Name="prenumeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="3.667,4,-220.333,3" Grid.Row="2" Text="{Binding prenume, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="352" Validation.ErrorTemplate="{StaticResource validationTemplate}" Style="{StaticResource textBoxInError}"/>
                     </Grid>
-                    <Button x:Name="btnPrev2" Content="Prev" HorizontalAlignment="Left" Height="29" Margin="105,201,0,0" VerticalAlignment="Top" Width="99" Click="btnPrev_Click" Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold"/>
-                    <Button x:Name="btnNext2" Content="Next" HorizontalAlignment="Left" Height="29" Margin="461,201,0,0" VerticalAlignment="Top" Width="91" Click="btnNext_Click" Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold"/>
+                    <Button x:Name="btnPrev2" Content="Prev" HorizontalAlignment="Left" Height="29" Margin="105,201,0,0" VerticalAlignment="Top" Width="99"  Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold" Click="btnPrev2_Click"/>
+                    <Button x:Name="btnNext2" Content="Next" HorizontalAlignment="Left" Height="29" Margin="461,201,0,0" VerticalAlignment="Top" Width="91"  Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold" Click="btnNext2_Click"/>
 
                 </Grid>
             </TabItem>
@@ -282,8 +282,8 @@
                         <Label Content="Nota Id:" HorizontalAlignment="Left" Margin="3,5,0,3" VerticalAlignment="Center"/>
                         <TextBox x:Name="notaIdTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="21" Margin="3,6,0,10.333" Text="{Binding NotaId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="39" IsEnabled="False"/>
                     </Grid>
-                    <Button x:Name="btnPrev3" Content="Prev" HorizontalAlignment="Left" Height="29" Margin="121,196,0,0" VerticalAlignment="Top" Width="91" Click="btnPrev_Click" Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold"/>
-                    <Button x:Name="btnNext3" Content="Next" HorizontalAlignment="Left" Height="29" Margin="455,196,0,0" VerticalAlignment="Top" Width="91" Click="btnNext_Click" Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold"/>
+                    <Button x:Name="btnPrev3" Content="Prev" HorizontalAlignment="Left" Height="29" Margin="121,196,0,0" VerticalAlignment="Top" Width="91"  Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold" Click="btnPrev3_Click"/>
+                    <Button x:Name="btnNext3" Content="Next" HorizontalAlignment="Left" Height="29" Margin="455,196,0,0" VerticalAlignment="Top" Width="91"  Background="#FFEEA9A9" BorderBrush="White" FontWeight="Bold" Click="btnNext3_Click"/>
 
                 </Grid>
             </TabItem>
@@ -318,6 +318,8 @@
                                     <MultiDataTrigger.Conditions>
                                         <Condition Binding="{Binding ElementName=numeprofTextBox, Path=(Validation.HasError)}" Value="false" />
                                         <Condition Binding="{Binding ElementName=prenumeprofTextBox, Path=(Validation.HasError)}" Value="false" />
+                                        <Condition Binding="{Binding ElementName=numeTextBox, Path=(Validation.HasError)}" Value="false" />
+                                        <Condition Binding="{Binding ElementName=prenumeTextBox, Path=(Validation.HasError)}" Value="false" />
                                     </MultiDataTrigger.Conditions>
                                     <Setter Property="IsEnabled" Value="true" />
                                 </MultiDataTrigger>
